@@ -1,3 +1,5 @@
+package tn.esprit.spring.services;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -7,11 +9,16 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import tn.esprit.spring.entities.User;
+import tn.esprit.spring.repositories.UserRepository;
+
+import java.util.Optional;
+
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplMockTest {
 
     @Mock
-    private UserRepositoryMock userRepository;
+    private UserRepository userRepository;
 
     @InjectMocks
     private UserServiceImpl userService;
@@ -53,5 +60,6 @@ class UserServiceImplMockTest {
         doNothing().when(userRepository).deleteById(1L);
 
         assertDoesNotThrow(() -> userService.deleteUser(1L));
+        verify(userRepository, times(1)).deleteById(1L);
     }
 }
