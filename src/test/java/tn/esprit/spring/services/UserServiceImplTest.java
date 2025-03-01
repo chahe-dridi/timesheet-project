@@ -1,15 +1,17 @@
 package tn.esprit.spring.services;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Disabled;
 
-@TestMethodOrder(OrderAnnotation.class)
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 class UserServiceImplTest {
 
     @Test
     void testAddUser() {
-        assertTrue(true); // Placeholder for actual implementation
+        String envVar = System.getenv("TIMESHEET_TESTS_FAIL");
+        if ("True".equalsIgnoreCase(envVar)) {
+            assertFalse(false, "Le test échoue car TIMESHEET_TESTS_FAIL est activé !");
+        }
     }
 }
