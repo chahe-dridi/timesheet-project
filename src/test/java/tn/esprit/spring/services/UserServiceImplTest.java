@@ -11,7 +11,8 @@ class UserServiceImplTest {
     void testAddUser() {
         String envVar = System.getenv("TIMESHEET_TESTS_FAIL");
         if ("True".equalsIgnoreCase(envVar)) {
-            assertFalse(false, "Le test échoue car TIMESHEET_TESTS_FAIL est activé !");
+            fail("Le test échoue car TIMESHEET_TESTS_FAIL est activé !");
         }
+
     }
 }

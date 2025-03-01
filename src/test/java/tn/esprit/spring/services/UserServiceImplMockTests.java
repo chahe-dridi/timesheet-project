@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@Disabled // Désactive l'exécution automatique du test
+//@Disabled // Désactive l'exécution automatique du test
 class UserServiceImplMockTests {
 
     @Mock
